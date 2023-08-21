@@ -22,6 +22,6 @@ class Exercises(Base):
 class Workout_Exercises(Base): 
     __tablename__ = "workout_exercises"
     id = Column(Integer, primary_key=True)
-    workout_id = Column(Integer, foreign_key=True)
-    exercise_id = Column(Integer, foreign_key=True)
+    workout_id = Column(Integer)
+    exercise_id = Column(Integer)
 
