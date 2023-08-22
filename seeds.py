@@ -164,7 +164,4 @@ workouts = [
     )
 ]
 
-workout_exercises = [
-    workout_id="???", 
-    exercise_id="???"
-]
+
