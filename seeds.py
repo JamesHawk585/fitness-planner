@@ -168,3 +168,34 @@ session.add_all(exercises)
 session.add_all(workouts)
 session.commit()
 
+push_day = workouts[0]
+
+bench_press = exercises[0]
+deltoid_raises = exercises[14]
+dumbell_press = exercises[1]
+deadlift = exercises[5]
+cable_tricep_extensions = exercises[16]
+forearm_curls = exercises[4]
+
+push_day.exercises.append(bench_press)
+push_day.exercises.append(deltoid_raises)
+push_day.exercises.append(dumbell_press)
+push_day.exercises.append(deadlift)
+push_day.exercises.append(cable_tricep_extensions)
+push_day.exercises.append(forearm_curls)
+
+
+# pull_day = workouts[1]
+
+# abs_and_legs = workouts[2]
+
+# The above code will look similar to UI commands 
+
+session.add(push_day)
+session.commit()
+
+# Dont yet have the code that puts an exercise into a workout. 
+# Write python that lets sqlalchemny know to add to join table. 
+
+
+
