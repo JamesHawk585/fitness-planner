@@ -98,7 +98,7 @@ exercises = [
         exercise_description="Light run", 
         category="Cardio", 
         weight=1, 
-        units="Miles", 
+        units="Mile(s)", 
         reps=1, 
         sets=1),
     Exercise(
@@ -106,11 +106,11 @@ exercises = [
         exercise_description="Cycle in place", 
         category="Cardio", 
         weight=1, 
-        units="Mile", 
+        units="Mile(s)", 
         reps=1, 
         sets=1),
     Exercise(
-        exercise_name="Latv Pulldowns", 
+        exercise_name="Lat Pulldowns", 
         exercise_description="Sit, pull bar to chest.", 
         category="Strength", 
         weight=160, 

@@ -15,7 +15,7 @@ class Workout(Base):
     id = Column(Integer, primary_key=True)
     workout_name = Column(String)
     workout_description = Column(String)
-    exercises = relationship("Exercise", secondary=association_table, back_populates='workout')
+    exercise = relationship("Exercise", secondary=association_table, back_populates='workout')
 
     # "back_populates" added to Workout class. 
 
