@@ -5,11 +5,12 @@ from sqlalchemy.orm import sessionmaker
 print("🌱 Seeding DB...")
 
 engine = create_engine('sqlite:///fitness_data.db')
-
 Session = sessionmaker(bind=engine)
 session = Session()
 
 session.query(Exercises).delete()
+session.query(Workouts).delete()
+session.query(Workout_Exercises).delete()
 
 exercises = [
     Exercises(
@@ -102,7 +103,7 @@ exercises = [
         sets=1),
     Exercises(
         exercise_name="Cycle", 
-        exercise_description="cycle in place", 
+        exercise_description="Cycle in place", 
         category="Cardio", 
         weight=1, 
         units="Mile", 
@@ -118,7 +119,7 @@ exercises = [
         sets=2),
     Exercises(
         exercise_name="Shrugs", 
-        exercise_description="lift shoulders and hold.", 
+        exercise_description="Holds dumbells. Lift shoulders and hold.", 
         category="Strength", 
         weight=100, 
         units="lb", 
@@ -150,3 +151,20 @@ exercises = [
         sets=2),
 ]
 
+workouts = [
+    Workouts(
+        workout_name="push",
+        workout_description="In the “push” workout you train all the upper body pushing muscles, i.e. the chest, shoulders and triceps."),
+    Workouts(
+        workout_name="Pull",
+        workout_description="In the “pull” workout you train all the upper body pulling muscles, i.e. the back and biceps."), 
+    Workouts(
+        workout_name="Abs & Legs",
+        workout_description="And in the “legs” workout you train the entire lower body, i.e. the quads, hamstrings, calves and abdominals."
+    )
+]
+
+workout_exercises = [
+    workout_id="???", 
+    exercise_id="???"
+]
