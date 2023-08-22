@@ -1,4 +1,4 @@
-from models import Workouts, Exercises, Workout_Exercises
+from models import Workout, Exercise
 from sqlalchemy import create_engine 
 from sqlalchemy.orm import sessionmaker 
 
@@ -8,12 +8,12 @@ engine = create_engine('sqlite:///fitness_data.db')
 Session = sessionmaker(bind=engine)
 session = Session()
 
-session.query(Exercises).delete()
-session.query(Workouts).delete()
-session.query(Workout_Exercises).delete()
+session.query(Exercise).delete()
+session.query(Workout).delete()
+
 
 exercises = [
-    Exercises(
+    Exercise(
         exercise_name="Bench Press", 
         exercise_description="Lie on bench, lift barbell to chest, extend arms.", 
         category="strength", 
@@ -21,7 +21,7 @@ exercises = [
         units="lb", 
         reps=10, 
         sets=2), 
-    Exercises(
+    Exercise(
         exercise_name="Dumbell Press", 
         exercise_description="Lift barbells from shouder height, extend arms.", 
         category="strength", 
@@ -29,7 +29,7 @@ exercises = [
         units="lb", 
         reps=10, 
         sets=2),
-    Exercises(
+    Exercise(
         exercise_name="Squat", 
         exercise_description="Bend knees, lower hips, stand up.", 
         category="strength", 
@@ -37,7 +37,7 @@ exercises = [
         units="lb", 
         reps=10, 
         sets=2),
-    Exercises(
+    Exercise(
         exercise_name="Bicep Curls", 
         exercise_description="Choose wight, lift dumbell while isolating the bicep.", 
         category="strength", 
@@ -45,7 +45,7 @@ exercises = [
         units="lb", 
         reps=10, 
         sets=2),
-    Exercises(
+    Exercise(
         exercise_name="Forearm Curls", 
         exercise_description="Flex wrists, lift weights.", 
         category="strength", 
@@ -53,7 +53,7 @@ exercises = [
         units="lb", 
         reps=10, 
         sets=2),
-    Exercises(
+    Exercise(
         exercise_name="Deadlift", 
         exercise_description="Liftbarbell off ground while miantianing good posture. Stand tall.", 
         category="strength", 
@@ -61,7 +61,7 @@ exercises = [
         units="lb", 
         reps=10, 
         sets=2),
-    Exercises(
+    Exercise(
         exercise_name="Pullups", 
         exercise_description="Hang, lift body, chin over bar.", 
         category="strength", 
@@ -69,7 +69,7 @@ exercises = [
         units="lb", 
         reps=10, 
         sets=2),
-    Exercises(
+    Exercise(
         exercise_name="Cable Rows", 
         exercise_description="Sit, pull cable to torso.", 
         category="Strength", 
@@ -77,7 +77,7 @@ exercises = [
         units="lb", 
         reps=10, 
         sets=2),
-    Exercises(
+    Exercise(
         exercise_name="Planks", 
         exercise_description="Hold push-up position", 
         category="Strength", 
@@ -85,7 +85,7 @@ exercises = [
         units="lb", 
         reps=10, 
         sets=2),
-    Exercises(
+    Exercise(
         exercise_name="Situps", 
         exercise_description="Lie on bench. lift torso.", 
         category="Strength", 
@@ -93,7 +93,7 @@ exercises = [
         units="lb", 
         reps=10, 
         sets=2),
-    Exercises(
+    Exercise(
         exercise_name="Jog", 
         exercise_description="Light run", 
         category="Cardio", 
@@ -101,7 +101,7 @@ exercises = [
         units="Miles", 
         reps=1, 
         sets=1),
-    Exercises(
+    Exercise(
         exercise_name="Cycle", 
         exercise_description="Cycle in place", 
         category="Cardio", 
@@ -109,7 +109,7 @@ exercises = [
         units="Mile", 
         reps=1, 
         sets=1),
-    Exercises(
+    Exercise(
         exercise_name="Latv Pulldowns", 
         exercise_description="Sit, pull bar to chest.", 
         category="Strength", 
@@ -117,7 +117,7 @@ exercises = [
         units="lb", 
         reps=10, 
         sets=2),
-    Exercises(
+    Exercise(
         exercise_name="Shrugs", 
         exercise_description="Holds dumbells. Lift shoulders and hold.", 
         category="Strength", 
@@ -125,7 +125,7 @@ exercises = [
         units="lb", 
         reps=10, 
         sets=2),
-    Exercises(
+    Exercise(
         exercise_name="Deltoid Raises", 
         exercise_description="Choose wight, lift dumbell sideways while isolating the deltoids.", 
         category="Strength", 
@@ -133,7 +133,7 @@ exercises = [
         units="lb", 
         reps=10, 
         sets=2),
-    Exercises(
+    Exercise(
         exercise_name="Cable Flys", 
         exercise_description="Pull cables across chest.", 
         category="Strength", 
@@ -141,7 +141,7 @@ exercises = [
         units="lb", 
         reps=10, 
         sets=2),
-    Exercises(
+    Exercise(
         exercise_name="Cable Treicep Extensions", 
         exercise_description="Pull cable down and extend arms.", 
         category="Strength", 
@@ -152,16 +152,19 @@ exercises = [
 ]
 
 workouts = [
-    Workouts(
+    Workout(
         workout_name="push",
         workout_description="In the “push” workout you train all the upper body pushing muscles, i.e. the chest, shoulders and triceps."),
-    Workouts(
+    Workout(
         workout_name="Pull",
         workout_description="In the “pull” workout you train all the upper body pulling muscles, i.e. the back and biceps."), 
-    Workouts(
+    Workout(
         workout_name="Abs & Legs",
         workout_description="And in the “legs” workout you train the entire lower body, i.e. the quads, hamstrings, calves and abdominals."
     )
 ]
 
+session.add_all(exercises)
+session.add_all(workouts)
+session.commit()
 

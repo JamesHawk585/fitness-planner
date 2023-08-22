@@ -20,6 +20,7 @@ class Workout(Base):
 class Exercise(Base):
     __tablename__ = "exercise"
     id = Column(Integer, primary_key=True)
+    exercise_name = Column(String)
     exercise_description= Column(String)
     category = Column(String)
     weight = Column(Integer)
