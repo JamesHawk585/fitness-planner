@@ -15,7 +15,9 @@ class Workout(Base):
     id = Column(Integer, primary_key=True)
     workout_name = Column(String)
     workout_description = Column(String)
-    exercises = relationship("Exercise", secondary=association_table)
+    exercises = relationship("Exercise", secondary=association_table, back_populates='workout')
+
+    # "back_populates" added to Workout class. 
 
 class Exercise(Base):
     __tablename__ = "exercise"
@@ -27,9 +29,11 @@ class Exercise(Base):
     units = Column(String)
     reps = Column(Integer)
     sets = Column(Integer)
+    workout = relationship("Workout", secondary=association_table, back_populates='exercise')
+
+    # "back_populates" added to Exercise class
 
 
 # Do I need __repr__ methods for each class? 
-# May need to do a manual migration after changing table names. 
-# May need to delete database and migrations. 
+
 
