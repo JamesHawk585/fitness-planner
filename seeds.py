@@ -170,6 +170,7 @@ session.commit()
 
 push_day = workouts[0]
 
+jog = exercises[10]
 bench_press = exercises[0]
 deltoid_raises = exercises[14]
 dumbell_press = exercises[1]
@@ -177,6 +178,7 @@ deadlift = exercises[5]
 cable_tricep_extensions = exercises[16]
 forearm_curls = exercises[4]
 
+push_day.exercises.append(jog)
 push_day.exercises.append(bench_press)
 push_day.exercises.append(deltoid_raises)
 push_day.exercises.append(dumbell_press)
@@ -185,7 +187,23 @@ push_day.exercises.append(cable_tricep_extensions)
 push_day.exercises.append(forearm_curls)
 
 
-# pull_day = workouts[1]
+pull_day = workouts[1]
+
+cycle = exercises[11]
+bicep_curls = exercises[3]
+pullups = exercises[6]
+cable_rows = exercises[7]
+lat_pulldowns = exercises[12]
+cable_flys = exercises[15]
+shrugs = exercises[13]
+
+pull_day.exercises.append(cycle)
+pull_day.exercises.append(bicep_curls)
+pull_day.exercises.append(pullups)
+pull_day.exercises.append(cable_rows)
+pull_day.exercises.append(lat_pulldowns)
+pull_day.exercises.append(cable_flys)
+pull_day.exercises.append(shrugs)
 
 # abs_and_legs = workouts[2]
 
