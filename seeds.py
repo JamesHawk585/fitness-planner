@@ -205,7 +205,17 @@ pull_day.exercises.append(lat_pulldowns)
 pull_day.exercises.append(cable_flys)
 pull_day.exercises.append(shrugs)
 
-# abs_and_legs = workouts[2]
+abs_and_legs_day = workouts[2]
+
+squat = exercises[2]
+planks = exercises[8]
+situps = exercises[9]
+
+abs_and_legs_day.append(jog)
+abs_and_legs_day.append(squat)
+abs_and_legs_day.append(planks)
+abs_and_legs_day.append(situps)
+
 
 # The above code will look similar to UI commands 
 
