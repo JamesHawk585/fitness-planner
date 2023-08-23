@@ -211,7 +211,6 @@ squat = exercises[2]
 planks = exercises[8]
 situps = exercises[9]
 
-abs_and_legs_day.append(jog)
 abs_and_legs_day.append(squat)
 abs_and_legs_day.append(planks)
 abs_and_legs_day.append(situps)
@@ -222,6 +221,7 @@ abs_and_legs_day.append(situps)
 session.add(push_day)
 session.commit()
 
+print(":100: Seeding complete!")
 # Dont yet have the code that puts an exercise into a workout. 
 # Write python that lets sqlalchemny know to add to join table. 
 
