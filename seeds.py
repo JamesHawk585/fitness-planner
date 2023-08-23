@@ -186,7 +186,6 @@ push_day.exercises.append(deadlift)
 push_day.exercises.append(cable_tricep_extensions)
 push_day.exercises.append(forearm_curls)
 
-
 pull_day = workouts[1]
 
 cycle = exercises[11]
@@ -211,17 +210,20 @@ squat = exercises[2]
 planks = exercises[8]
 situps = exercises[9]
 
-abs_and_legs_day.append(squat)
-abs_and_legs_day.append(planks)
-abs_and_legs_day.append(situps)
+abs_and_legs_day.exercises.append(squat)
+abs_and_legs_day.exercises.append(planks)
+abs_and_legs_day.exercises.append(situps)
 
 
 # The above code will look similar to UI commands 
 
 session.add(push_day)
+session.add(pull_day)
+session.add(abs_and_legs_day)
 session.commit()
 
-print(":100: Seeding complete!")
+print("💯 Seeding complete!")
+
 # Dont yet have the code that puts an exercise into a workout. 
 # Write python that lets sqlalchemny know to add to join table. 
 
