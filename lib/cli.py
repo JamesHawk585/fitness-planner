@@ -1,4 +1,5 @@
 # from ipdb import set_trace
+import os
 
 def start():
     print("Welcome to the Fitness Planner! 💪")
@@ -10,26 +11,28 @@ def start():
     user_input = input('What would you like to do?')
     handle_user_input(user_input)
 
-def handle_user_input(user_input):
-    import ipdb; ipdb.set_trace()
-    if user_input == 1:
-        pass
+def handle_user_input(input):
+    # import ipdb; ipdb.set_trace()
+    if input == '1':
+        print('Creating workout...')
         # Returns the next workout in a rotation of push_day, pull_day, and abs_and_legs_day.
-    elif user_input == 2:
-        pass
+    elif input == '2':
+        print('Showing existing workouts...')
         #  Return the exercises for each of the three workouts.
-    elif user_input == 3:
-        pass
+    elif input == '3':
+        print('Adding exercise to workout...')
         # Add new exercise to a specified workout. 
             #  User will have to enter a valid value for each of the columns in the exercise table and append that exercise to an existing workout. 
-    elif user_input == 4:
-        pass
+    elif input == '4':
+        print('Deleting exercise from workout...')
         # Delete a specified instance of the Exercise class by refrencing exercise_name.
-    elif user_input == 5: 
-        pass
+    elif input == '5': 
+        print('Quitting app..')
         # Quit the application 
     else: 
-        print('Please enetr a valid input (1-5.)')
+        os.system('clear')
+        print('Please enetr a valid number (1-5).')
+        start()
 
 
 
