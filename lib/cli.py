@@ -1,3 +1,4 @@
+# from ipdb import set_trace
 
 def start():
     print("Welcome to the Fitness Planner! 💪")
@@ -9,9 +10,8 @@ def start():
     user_input = input('What would you like to do?')
     handle_user_input(user_input)
 
-start()
-
 def handle_user_input(user_input):
+    import ipdb; ipdb.set_trace()
     if user_input == 1:
         pass
         # Returns the next workout in a rotation of push_day, pull_day, and abs_and_legs_day.
@@ -33,7 +33,7 @@ def handle_user_input(user_input):
 
 
 
-
+start()
 
     
 
