@@ -85,5 +85,9 @@ Code demo
 Creating a schema
 Generate and run migrations
 
-2023-08-07-sqlalchemy-alembic-migrations-and-virtual-env 
-    - 1:06 from start of lecture 
+### CRUD ###
+User can: 
+1. Create a new workout 
+2. Read all exercises associated with each workout 
+3. Update the exercises associated with a workout 
+4. Delete exercises from a workout 
