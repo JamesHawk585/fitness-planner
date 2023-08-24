@@ -1,6 +1,5 @@
 # from ipdb import set_trace
 from prettycli import red, bold
-import os
 from simple_term_menu import TerminalMenu
 
 # Create simple-term-menu
@@ -13,17 +12,17 @@ class Cli():
         terminal_menu = TerminalMenu(options)
         menu_entry_index = terminal_menu.show()
         print(f"You have selected {options[menu_entry_index]}!")
+    # def handle_user_input(input):
+    # # import ipdb; ipdb.set_trace()
+    #     is_number = input.isdigit()
+    #     if is_number:
+    #         selection = int(input)
+    #         if 1 <= selection <=5:
+    #             handle_selection(selection)
+    #     else: 
+    #         print(red("Please enter a valid number (1-5)."))
     start()
-
-# def start():
-#     print(bold("Welcome to the Fitness Planner! 💪"))
-#     print('1. Create a new workout')
-#     print('2. View existing workouts')
-#     print('3. Add exercise to workout')
-#     print('4. Delete exercise from workout')
-#     print('5. Exit')
-#     user_input = input('What would you like to do?')
-#     handle_user_input(user_input)
+    # handle_user_input()
 
 
 def handle_selection():
@@ -39,6 +38,14 @@ def handle_user_input(input):
     else: 
         print(red("Please enter a valid number (1-5)."))
 
+    def create_workout():
+        pass
+    def view_workouts():
+        pass
+    def add_exercise_to_workout():
+        pass
+    def delete_exercise():
+        pass
 
 
 
