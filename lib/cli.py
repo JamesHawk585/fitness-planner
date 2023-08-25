@@ -2,43 +2,54 @@
 from prettycli import red, bold
 from simple_term_menu import TerminalMenu
 
+
 # Create simple-term-menu
 
 
 class Cli():
-    def start():
+    def start(self):
         print(bold("Welcome to the Fitness Planner! 💪"))
-        options = ["Create a new workout", "View existing workouts", "Add exercise to workout", "Delete exercise from workout"]
+        options = ["Create a new workout", "View existing workouts", "Add exercise to workout", "Delete exercise from workout", "exit"]
         terminal_menu = TerminalMenu(options)
         menu_entry_index = terminal_menu.show()
-        input = menu_entry_index
         print(f"You have selected {options[menu_entry_index]}!")
-    def handle_user_input(input):
-    # import ipdb; ipdb.set_trace()
-        is_number = input.isdigit()
-        if is_number:
-            selection = int(input)
-            if 1 <= selection <=5:
-                handle_selection(selection)
-        else: 
-            print(red("Please enter a valid number (1-5)."))
-    def handle_selection():
-        pass
-    start()
-    handle_user_input()
-    handle_selection()
+        selection = options[menu_entry_index]
+        return selection
 
-    def create_workout():
-        pass
-    def view_workouts():
-        pass
-    def add_exercise_to_workout():
-        pass
-    def delete_exercise():
-        pass
+# 2023-08-11-SQLAlchemy/Alembic - Migrations Cont. Many-to-many, CLI build demo
+# 2:05:30
+
+# Routes selection from start() to CRUD functions. 
+def handle_selection(selection):
+    if selection == "Create a new workout":
+        create_workout()
+    elif selection == "View existing workouts":
+        view_workouts()
+    elif selection == "Add exercise to workout":
+        add_exercise_to_workout()
+    elif selection == "Delete exercise from workout":
+        delete_exercise()
+    else:
+        exit()
+# Goole Python Exit() function. May need to rename. 
+
+# CRUD Functions 
+def create_workout():
+    print('Creating workout...')
+def view_workouts():
+    print('Showing workouts...')
+def add_exercise_to_workout():
+    print("Adding exercise...")
+def delete_exercise():
+    print('deleting exercise...')
+def exit():
+    print('Bye! 👋')
 
 
 
 
+app = Cli()
+selection = app.start()
+handle_selection(selection)
 
 
