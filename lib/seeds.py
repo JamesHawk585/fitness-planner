@@ -1,4 +1,4 @@
-from models import Workout, Exercise
+from lib.models import Workout, Exercise
 from sqlalchemy import create_engine 
 from sqlalchemy.orm import sessionmaker 
 
@@ -7,6 +7,8 @@ print("🌱 Seeding DB...")
 engine = create_engine('sqlite:///fitness_data.db')
 Session = sessionmaker(bind=engine)
 session = Session()
+
+# Close the connection by calling the engine.dispose() method?
 
 session.query(Exercise).delete()
 session.query(Workout).delete()
@@ -223,9 +225,7 @@ session.add(abs_and_legs_day)
 session.commit()
 
 print("💯 Seeding complete!")
-
-# Dont yet have the code that puts an exercise into a workout. 
-# Write python that lets sqlalchemny know to add to join table. 
+ 
 
 
 

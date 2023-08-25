@@ -85,9 +85,28 @@ Code demo
 Creating a schema
 Generate and run migrations
 
-### CRUD ###
+# CLI 
+
+### CRUD 
 User can: 
-1. Create a new workout 
-2. Read all exercises associated with each workout 
-3. Update the exercises associated with a workout 
-4. Delete exercises from a workout 
+1. [] Create a new workout 
+2. [] Read all exercises associated with each workout 
+3. [] Update the exercises associated with a workout 
+4. [] Delete exercises from a workout 
+
+### Defining a Point of Entry 
+1. [] Define a point of entry. This will be the code that runs first. 
+    - Begin by creating a cli.py file.
+    - Create a function called start in cli.py that start the application and prints options: 
+        1. Create New Workout 
+        2. View My Workouts 
+        3. Add Exercise to Workout 
+        4. Delete Exercise from Workout 
+
+### Add some flare
+
+color terminal: https://github.com/noyoshi/prettycli
+menu selection: https://github.com/IngoMeyer441/simple-term-menu#create-a-menu-with-the-default-style
+ASCII Terminal Art: https://patorjk.com/software/taag/#p=display&f=ANSI%20Shadow&t=toy%20tracker
+Create a function that returns a welcome banner.
+Clear screen

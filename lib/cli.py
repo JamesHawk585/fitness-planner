@@ -1,6 +1,16 @@
 # from ipdb import set_trace
 from prettycli import red, bold
 from simple_term_menu import TerminalMenu
+from models import Base, Workout
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
+
+
+# Boilerplate for SQL Alchemy
+engine = create_engine('sqlite:///fitness_data.db')
+Base.metadata.create_all(engine)
+Session = sessionmaker(bind=engine)
+session = Session()
 
 
 class Cli():
@@ -11,6 +21,7 @@ class Cli():
         menu_entry_index = terminal_menu.show()
         print(f"You have selected {options[menu_entry_index]}!")
         selection = options[menu_entry_index]
+        print(type(selection))
         return selection
 # Consider options for keeping the CLI clean 
 
@@ -36,7 +47,17 @@ def handle_selection(selection):
 def create_workout():
     print('Creating workout...')
 def view_workouts():
-    print('Showing workouts...')
+    workouts = session.query(Workout).all()
+    print(workouts)
+    # Pulls a list from the DB
+# Use session.query
+# SQLAL:Alechemy truens results intop Python objects. 
+    # Selects alls rows from the workout table. 
+    # Isert logic to show three tables: 
+    # 1. All exercises in push_day
+    # 2. All exercises in pull_day
+    # 3. All exercises in abs_and_legs_day
+    # 4. Returns user to menu when done 
 def add_exercise_to_workout():
     print("Adding exercise...")
 def delete_exercise():
