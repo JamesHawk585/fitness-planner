@@ -3,9 +3,6 @@ from prettycli import red, bold
 from simple_term_menu import TerminalMenu
 
 
-# Create simple-term-menu
-
-
 class Cli():
     def start(self):
         print(bold("Welcome to the Fitness Planner! 💪"))
@@ -15,11 +12,13 @@ class Cli():
         print(f"You have selected {options[menu_entry_index]}!")
         selection = options[menu_entry_index]
         return selection
+# Consider options for keeping the CLI clean 
 
 # 2023-08-11-SQLAlchemy/Alembic - Migrations Cont. Many-to-many, CLI build demo
 # 2:05:30
 
 # Routes selection from start() to CRUD functions. 
+# Consider refactoring 
 def handle_selection(selection):
     if selection == "Create a new workout":
         create_workout()
@@ -42,7 +41,7 @@ def add_exercise_to_workout():
     print("Adding exercise...")
 def delete_exercise():
     print('deleting exercise...')
-def exit():
+def exit_program():
     print('Bye! 👋')
 
 
