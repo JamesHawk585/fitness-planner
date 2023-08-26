@@ -4,6 +4,7 @@ from simple_term_menu import TerminalMenu
 from models import Base, Workout
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
+import os
 
 
 # Boilerplate for SQL Alchemy
@@ -16,19 +17,15 @@ session = Session()
 class Cli():
     def start(self):
         print(bold("Welcome to the Fitness Planner! 💪"))
-        options = ["Create a new workout", "View existing workouts", "Add exercise to workout", "Delete exercise from workout", "exit"]
+        options = ["Create a new workout", "View existing workouts", "Add exercise to workout", "Delete exercise from workout","Select workout", "exit"]
         terminal_menu = TerminalMenu(options)
         menu_entry_index = terminal_menu.show()
         print(f"You have selected {options[menu_entry_index]}!")
         selection = options[menu_entry_index]
-        print(type(selection))
         return selection
+# Selection is a string. simple_term_menu alwas uses the index of a list of strings to return a value. 
 # Consider options for keeping the CLI clean 
-
-# 2023-08-11-SQLAlchemy/Alembic - Migrations Cont. Many-to-many, CLI build demo
-# 2:05:30
-
-# Routes selection from start() to CRUD functions. 
+ 
 # Consider refactoring 
 def handle_selection(selection):
     if selection == "Create a new workout":
@@ -39,11 +36,10 @@ def handle_selection(selection):
         add_exercise_to_workout()
     elif selection == "Delete exercise from workout":
         delete_exercise()
+    elif selection == "Select workout":
+        select_workout()
     else:
-        exit()
-# Goole Python Exit() function. May need to rename. 
-# The __str__() method returns a human-readable, or informal, string representation of an object.
-# Method is called outside of the class by the str() function call. 
+        exit_program()
 
 
 # CRUD Functions 
@@ -53,8 +49,10 @@ def view_workouts():
     workouts = session.query(Workout).all()
     print(workouts)
 def select_workout(workouts):
+    os.system("clear")
     print(bold("Please choose an option"))
-    options = str(workouts)
+    options = [str(workout) for workout in workouts]
+
     # Research how to take a list of something and turn it into a list of somewthing else. Use list comprehension  
     # Consider the use of the __str__ method as well. 
     terminal_menu = TerminalMenu(options)
@@ -63,14 +61,8 @@ def select_workout(workouts):
     selection = options[menu_entry_index]
     return selection
     # Pulls a list from the DB
-# Use session.query
-# SQLAL:Alechemy truens results intop Python objects. 
-    # Selects alls rows from the workout table. 
-    # Isert logic to show three objects: 
-    # 1. All exercises in push_day
-    # 2. All exercises in pull_day
-    # 3. All exercises in abs_and_legs_day
-    # 4. Returns user to menu when done 
+    # Use session.query
+# SQLAL:Alechemy turns results into Python objects. 
 def add_exercise_to_workout():
     print("Adding exercise...")
 def delete_exercise():
