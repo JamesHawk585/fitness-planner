@@ -1,4 +1,4 @@
-from lib.models import Workout, Exercise
+from models import Workout, Exercise
 from sqlalchemy import create_engine 
 from sqlalchemy.orm import sessionmaker 
 
@@ -155,7 +155,7 @@ exercises = [
 
 workouts = [
     Workout(
-        workout_name="push",
+        workout_name="Push",
         workout_description="In the “push” workout you train all the upper body pushing muscles, i.e. the chest, shoulders and triceps."),
     Workout(
         workout_name="Pull",

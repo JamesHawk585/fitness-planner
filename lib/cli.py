@@ -1,7 +1,7 @@
 # from ipdb import set_trace
 from prettycli import red, bold
 from simple_term_menu import TerminalMenu
-from models import Base, Workout
+from models import Base, Workout, Exercise
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import os
@@ -16,6 +16,7 @@ session = Session()
 
 class Cli():
     def start(self):
+        os.system("clear")
         print(bold("Welcome to the Fitness Planner! 💪"))
         options = ["Create a new workout", "View existing workouts", "Add exercise to workout", "Delete exercise from workout","Select workout", "exit"]
         terminal_menu = TerminalMenu(options)
@@ -50,11 +51,11 @@ def view_workouts():
     workouts = session.query(Workout).all()
     print(workouts)
 def select_workout(workouts):
-    # os.system("clear")
+    os.system("clear")
     print(bold("Please choose an option"))
     options = [str(workout) for workout in workouts]
 
-    # Research how to take a list of something and turn it into a list of somewthing else. Use list comprehension  
+    # Research how to take a list of something and turn it into a list of something else. Use list comprehension  
     # Consider the use of the __str__ method as well. 
     terminal_menu = TerminalMenu(options)
     menu_entry_index = terminal_menu.show()
