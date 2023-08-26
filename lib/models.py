@@ -20,7 +20,8 @@ class Workout(Base):
     exercises = relationship("Exercise", secondary=association_table)
     def __repr__(self):
         # using self in string interpolation gives the f string access tot he workout_name instance variable. 
-        return f'Workout: {self.workout_name}\n Description: {self.workout_description}\n'
+        # return f'Workout: {self.workout_name}\n Description: {self.workout_description}\n'
+        return f'Workout: {self.workout_name}'
     
 
 

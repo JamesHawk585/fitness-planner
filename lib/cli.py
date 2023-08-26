@@ -37,7 +37,8 @@ def handle_selection(selection):
     elif selection == "Delete exercise from workout":
         delete_exercise()
     elif selection == "Select workout":
-        select_workout()
+        workouts = session.query(Workout).all()
+        select_workout(workouts)
     else:
         exit_program()
 
@@ -49,7 +50,7 @@ def view_workouts():
     workouts = session.query(Workout).all()
     print(workouts)
 def select_workout(workouts):
-    os.system("clear")
+    # os.system("clear")
     print(bold("Please choose an option"))
     options = [str(workout) for workout in workouts]
 
