@@ -42,6 +42,9 @@ def handle_selection(selection):
     else:
         exit()
 # Goole Python Exit() function. May need to rename. 
+# The __str__() method returns a human-readable, or informal, string representation of an object.
+# Method is called outside of the class by the str() function call. 
+
 
 # CRUD Functions 
 def create_workout():
@@ -49,11 +52,21 @@ def create_workout():
 def view_workouts():
     workouts = session.query(Workout).all()
     print(workouts)
+def select_workout(workouts):
+    print(bold("Please choose an option"))
+    options = str(workouts)
+    # Research how to take a list of something and turn it into a list of somewthing else. Use list comprehension  
+    # Consider the use of the __str__ method as well. 
+    terminal_menu = TerminalMenu(options)
+    menu_entry_index = terminal_menu.show()
+    print(f"You have selected {options[menu_entry_index]}!")
+    selection = options[menu_entry_index]
+    return selection
     # Pulls a list from the DB
 # Use session.query
 # SQLAL:Alechemy truens results intop Python objects. 
     # Selects alls rows from the workout table. 
-    # Isert logic to show three tables: 
+    # Isert logic to show three objects: 
     # 1. All exercises in push_day
     # 2. All exercises in pull_day
     # 3. All exercises in abs_and_legs_day
