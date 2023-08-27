@@ -1,7 +1,8 @@
 # from ipdb import set_trace
 from prettycli import red, bold
 from simple_term_menu import TerminalMenu
-from models import Base, Workout, Exercise
+from models import Base, Workout, Exercise, association_table 
+from seeds import push_day
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import os
@@ -47,23 +48,26 @@ def handle_selection(selection):
 # CRUD Functions 
 def create_workout():
     print('Creating workout...')
+    app.start()
 def view_workouts():
+    os.system("clear")
     workouts = session.query(Workout).all()
     print(workouts)
 def select_workout(workouts):
     os.system("clear")
     print(bold("Please choose an option"))
     options = [str(workout) for workout in workouts]
-
-    # Research how to take a list of something and turn it into a list of something else. Use list comprehension  
-    # Consider the use of the __str__ method as well. 
     terminal_menu = TerminalMenu(options)
     menu_entry_index = terminal_menu.show()
     print(f"You have selected {options[menu_entry_index]}!")
     selection = options[menu_entry_index]
-    return selection
-    # Pulls a list from the DB
-    # Use session.query
+    # selection == <class 'str'>
+    # The join method does not accept a string argument representing the table name. It needs a table object. 
+    exercises = session.query(Exercise).join(association_table).filter(association_table.c.workout_id == selection)
+    print(exercises)
+    # selected_workout_id = int(selection.split(" ")[1])
+    # print(int(selection.split(' ')[1]))
+    # print(exercises)
 # SQLAL:Alechemy turns results into Python objects. 
 def add_exercise_to_workout():
     print("Adding exercise...")
