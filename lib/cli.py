@@ -50,7 +50,7 @@ def create_workout():
     print('Creating workout...')
     app.start()
 def view_workouts():
-    os.system("clear")
+    # os.system("clear")
     workouts = session.query(Workout).all()
     print(workouts)
 def select_workout(workouts):
