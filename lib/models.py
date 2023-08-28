@@ -10,7 +10,7 @@ association_table = Table(
     Column("workout_id", ForeignKey("workout.id")),
 )
 
-# __str__ is an instance methoid on a class. 
+# __str__ is an instance method on a class. 
 
 class Workout(Base):
     __tablename__ = "workout"

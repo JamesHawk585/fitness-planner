@@ -2,7 +2,6 @@
 from prettycli import red, bold
 from simple_term_menu import TerminalMenu
 from models import Base, Workout, Exercise, association_table 
-from seeds import push_day
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 import os
@@ -50,7 +49,6 @@ def create_workout():
     print('Creating workout...')
     app.start()
 def view_workouts():
-    # os.system("clear")
     workouts = session.query(Workout).all()
     print(workouts)
 def select_workout(workouts):
