@@ -52,14 +52,11 @@ def select_workout(workouts):
     os.system("clear")
     print(bold("Please choose an option"))
     options = [str(workout) for workout in workouts]
-    print(options)
     terminal_menu = TerminalMenu(options)
     menu_entry_index = terminal_menu.show()
     print(f"You have selected {options[menu_entry_index]}!")
     selection = options[menu_entry_index]
-    print(menu_entry_index)
     workout = workouts[menu_entry_index]
-    print(workout.id)
     print(workout.exercises)
 
 # SQLAL:Alechemy turns results into Python objects. 
