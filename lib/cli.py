@@ -53,8 +53,6 @@ def select_workout(workouts):
     print(bold("Please choose an option"))
     options = [str(workout) for workout in workouts]
     print(options)
-    # Workouts is a list of workout objects.
-    # We can index the strings from [0] to [2]. That corresponds to id 1-3. 
     terminal_menu = TerminalMenu(options)
     menu_entry_index = terminal_menu.show()
     print(f"You have selected {options[menu_entry_index]}!")
