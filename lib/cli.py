@@ -54,15 +54,27 @@ def select_workout(workouts):
     os.system("clear")
     print(bold("Please choose an option"))
     options = [str(workout) for workout in workouts]
+    print(options)
+    # Workouts is a list of workout objects.
+    # We can index the strings from [0] to [2]. That corresponds to id 1-3. 
     terminal_menu = TerminalMenu(options)
     menu_entry_index = terminal_menu.show()
     print(f"You have selected {options[menu_entry_index]}!")
     selection = options[menu_entry_index]
+    print(menu_entry_index)
+    workout = workouts[menu_entry_index]
+    print(workout.id)
+    print(workout.exercises)
     # selection == <class 'str'>
     # The join method does not accept a string argument representing the table name. It needs a table object. 
-    
+    # Initiates a new SQLAlchemy Query that will return instances of the Exercise class. 
+    # Join(association_table) joins the exercise table witht the assocation table based on a condition. 
+    # .filter() filters the rresult of the join to only include rows where the workout_id == selection. 
     exercises = session.query(Exercise).join(association_table).filter(association_table.c.workout_id == selection)
+
+    # must but workout id into selection, not the string from our menu.
     print(exercises)
+    print(selection)
     # selected_workout_id = int(selection.split(" ")[1])
     # print(int(selection.split(' ')[1]))
     # print(exercises)
