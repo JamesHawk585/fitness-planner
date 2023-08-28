@@ -47,7 +47,6 @@ def handle_selection(selection):
 # CRUD Functions 
 def create_workout():
     print('Creating workout...')
-    app.start()
 def view_workouts():
     workouts = session.query(Workout).all()
     print(workouts)
@@ -61,6 +60,7 @@ def select_workout(workouts):
     selection = options[menu_entry_index]
     # selection == <class 'str'>
     # The join method does not accept a string argument representing the table name. It needs a table object. 
+    
     exercises = session.query(Exercise).join(association_table).filter(association_table.c.workout_id == selection)
     print(exercises)
     # selected_workout_id = int(selection.split(" ")[1])
