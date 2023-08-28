@@ -24,8 +24,6 @@ class Cli():
         print(f"You have selected {options[menu_entry_index]}!")
         selection = options[menu_entry_index]
         return selection
-# Selection is a string. simple_term_menu alwas uses the index of a list of strings to return a value. 
-# Consider options for keeping the CLI clean 
  
 # Consider refactoring 
 def handle_selection(selection):
@@ -65,19 +63,7 @@ def select_workout(workouts):
     workout = workouts[menu_entry_index]
     print(workout.id)
     print(workout.exercises)
-    # selection == <class 'str'>
-    # The join method does not accept a string argument representing the table name. It needs a table object. 
-    # Initiates a new SQLAlchemy Query that will return instances of the Exercise class. 
-    # Join(association_table) joins the exercise table witht the assocation table based on a condition. 
-    # .filter() filters the rresult of the join to only include rows where the workout_id == selection. 
-    exercises = session.query(Exercise).join(association_table).filter(association_table.c.workout_id == selection)
 
-    # must but workout id into selection, not the string from our menu.
-    print(exercises)
-    print(selection)
-    # selected_workout_id = int(selection.split(" ")[1])
-    # print(int(selection.split(' ')[1]))
-    # print(exercises)
 # SQLAL:Alechemy turns results into Python objects. 
 def add_exercise_to_workout():
     print("Adding exercise...")
